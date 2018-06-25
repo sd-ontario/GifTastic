@@ -44,10 +44,25 @@
     <script>
 
         var topics = ["Fox", "Falco", "Marth", "Sheik", "Peach", "Jigglypuff", "Ice Climbers", "Captain Falcon"];
+        //
+        
+        //
 
         function displayGifs(){
             var gif = $(this).attr("dataName");
-            var queryURL = 
+            var key = "IIbqkfiPQ5Devwbzdgg86ZupbtClJehx";
+            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key="+key+"&q="+gif+"&limit=10&offset=0&rating=G&lang=en";
+
+            $.ajax({
+                url:queryURL,
+                method: "GET"
+            }).then(function(response){
+
+                console.log(response.data[0].url);
+                var imageURL = response.data[0].url;
+                $("#gifs").html("<img src="+imageURL+">");
+            })
+            
         }
 
         function renderButtons(){
@@ -80,6 +95,8 @@
             renderButtons();
 
         })
+
+        $(document).on('click', '.gifButton', displayGifs);
 
         renderButtons();
     
