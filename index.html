@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Stephen's Gif Search Engine!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="assets/app.js"></script>
+</head>
+<body>
+
+    <div id="banner" class="container-fluid">
+        <div id="buttonsView" class="jumbotron">
+            
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="gifs" class="col-lg-6">
+                This is where gifs go
+            </div>
+            <div id="search" class="col-lg-6">
+                This is where the search bar will go
+                <form id="gifForm">
+                    <label for="gifInput">Use this to add a gif button!</label>
+                    <input type="text" id="gifSearch">
+                    <br>
+                    
+                    <!-- Button triggers new gif to be added-->
+                    <input id="addGif" type="submit" value="Click to add!">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var topics = ["Fox", "Falco", "Marth", "Sheik", "Peach", "Jigglypuff", "Ice Climbers", "Captain Falcon"];
+
+        function displayGifs(){
+            var gif = $(this).attr("dataName");
+            var queryURL = 
+        }
+
+        function renderButtons(){
+
+            $("#buttonsView").empty();
+
+            for(i=0; i<topics.length; i++){
+            var a = $("<button>");
+
+            a.addClass("gifButton");
+
+            a.attr("dataName", topics[i]);
+
+            a.text(topics[i]);
+
+            $("#buttonsView").append(a);
+            }
+
+
+        }
+        
+        $("#addGif").on('click', function(event){
+            event.preventDefault();
+            var tag = $("#gifSearch").val().trim();
+            
+            topics.push(tag);
+
+            $("#gifSearch").val("");
+
+            renderButtons();
+
+        })
+
+        renderButtons();
+    
+    
+    </script>
+
+    
+</body>
+</html>
