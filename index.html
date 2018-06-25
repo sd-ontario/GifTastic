@@ -43,7 +43,7 @@
 
     <script>
 
-        var topics = ["Fox", "Falco", "Marth", "Sheik", "Peach", "Jigglypuff", "Ice Climbers", "Captain Falcon"];
+        var topics = ["Fox McCloud", "Falco Lombardi", "Prince Marth", "Sheik", "Princess Peach", "Jigglypuff", "Ice Climbers", "Captain Falcon"];
         //
         
         //
@@ -77,6 +77,16 @@
                 image = '<div>' + image + '</div>';
                 $('#gifs').append(image);
             }
+            $('.movImage').on('click', function(){
+                var state = $(this).attr('data-state');
+                if (state == 'still'){
+                    $(this).attr('src', $(this).attr('data-animate'));
+                    $(this).attr('data-state', 'animate');
+                }else{
+                    $(this).attr('src', $(this).attr('data-still'));
+                    $(this).attr('data-state', 'still');
+                }
+            })
 
         }
 
