@@ -15,3 +15,14 @@
 #buttonsView{
     background-color: black;
 }
+
+#frame{
+    float: left;
+    margin: 10px;
+}
+
+#description{
+    color: yellow;
+    
+    text-align: center;
+}
